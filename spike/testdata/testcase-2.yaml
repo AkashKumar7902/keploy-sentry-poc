@@ -1,0 +1,21 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: tc-checkout-bad-amount
+http_req:
+  method: POST
+  url: /api/checkout?source=web&promo=summer25
+  url_params:
+    source: web
+    promo: summer25
+  header:
+    Host: api.example.com
+    Content-Type: application/json
+    User-Agent: keploy-recorder/1.0
+    Accept: application/json
+    Authorization: Bearer test-token-abc
+    X-Request-Id: req-original-record-2
+    Traceparent: 00-different-trace-id-1234567890abcdef-01
+  body: '{"item":"widget","amount":-1}'
+http_resp:
+  status_code: 400
+  body: '{"error":"invalid amount"}'

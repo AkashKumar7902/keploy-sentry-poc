@@ -1,0 +1,16 @@
+version: api.keploy.io/v1beta1
+kind: Http
+name: tc-list-users
+http_req:
+  method: GET
+  url: /api/users?page=1
+  url_params:
+    page: "1"
+  header:
+    Host: api.example.com
+    Accept: application/json
+    Authorization: Bearer test-token-abc
+  body: ''
+http_resp:
+  status_code: 200
+  body: '[]'

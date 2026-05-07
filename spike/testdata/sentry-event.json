@@ -1,0 +1,34 @@
+{
+  "event_id": "abc123def456",
+  "project": "checkout-svc",
+  "release": "checkout-svc@1.4.2",
+  "level": "error",
+  "exception": {
+    "values": [
+      {
+        "type": "NullPointerException",
+        "value": "Cannot read property 'amount' of undefined"
+      }
+    ]
+  },
+  "request": {
+    "method": "POST",
+    "url": "https://api.example.com/api/checkout?source=web&promo=summer25",
+    "headers": {
+      "Host": "api.example.com",
+      "Content-Type": "application/json; charset=UTF-8",
+      "User-Agent": "Mozilla/5.0",
+      "Accept": "application/json",
+      "Authorization": "Bearer eyJhbGciOiJI...redacted",
+      "X-Request-Id": "req-9f8e7d6c-aabb-1234",
+      "Traceparent": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01",
+      "X-Datadog-Trace-Id": "1234567890"
+    },
+    "data": null
+  },
+  "contexts": {
+    "response": {
+      "status_code": 500
+    }
+  }
+}
