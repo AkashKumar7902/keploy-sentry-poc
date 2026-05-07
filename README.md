@@ -1,4 +1,3 @@
-# Keploy × Sentry Integration — POC
 
 A design sketch + working code that explores adding a "Reproduce in Keploy" button on every Sentry issue page. One click either gives the developer a `keploy test --testcase <id>` command (matching path) or fires the failing request at their app under `keploy record` to capture a brand-new testcase + dependency mocks (recording path).
 
