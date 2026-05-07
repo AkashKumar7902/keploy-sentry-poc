@@ -1,0 +1,53 @@
+{
+  "name": "Keploy",
+  "author": "Keploy",
+  "slug": "keploy",
+  "schema_version": "v1",
+  "description": "Reproduce a Sentry issue locally as a deterministic Keploy testcase. One click rebuilds the failing request, optionally fires it under `keploy record`, and gives you a runnable testcase + dependency mocks.",
+  "scopes": [
+    "issue:read",
+    "event:read",
+    "project:read",
+    "org:read"
+  ],
+  "events": [
+    "issue.created",
+    "issue.assigned",
+    "issue.resolved"
+  ],
+  "webhookUrl": "https://api.keploy.io/v1/integrations/sentry/webhook",
+  "redirectUrl": "https://api.keploy.io/v1/integrations/sentry/oauth/callback",
+  "isInternal": false,
+  "isAlertable": false,
+  "verifyInstall": true,
+  "schema": {
+    "elements": [
+      {
+        "type": "issue-link",
+        "link": {
+          "uri": "/v1/integrations/sentry/match",
+          "required_fields": [],
+          "optional_fields": []
+        },
+        "create": {
+          "uri": "/v1/integrations/sentry/record",
+          "required_fields": [
+            {
+              "type": "select",
+              "name": "keploy_app_id",
+              "label": "Keploy app",
+              "uri": "/v1/integrations/sentry/apps"
+            },
+            {
+              "type": "text",
+              "name": "bearer_token",
+              "label": "Bearer token (optional)",
+              "default": ""
+            }
+          ],
+          "optional_fields": []
+        }
+      }
+    ]
+  }
+}

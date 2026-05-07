@@ -1,0 +1,41 @@
+[
+  {
+    "id": "job-1",
+    "status": "pending",
+    "app_id": "checkout-svc",
+    "base_url": "https://httpbin.org",
+    "event": {
+      "event_id": "abc123def456",
+      "project": "checkout-svc",
+      "release": "checkout-svc@1.4.2",
+      "level": "error",
+      "exception": {
+        "values": [
+          {
+            "type": "NullPointerException",
+            "value": "Cannot read property 'amount' of undefined",
+            "stacktrace": {
+              "frames": [
+                {"filename": "checkout.go", "function": "ProcessOrder", "lineno": 142}
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "https://api.example.com/post?source=web&promo=summer25",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": "Bearer redacted",
+          "X-Request-Id": "req-9f8e7d6c"
+        },
+        "data": "{\"item\":\"widget\",\"amount\":100}"
+      },
+      "contexts": {
+        "response": {"status_code": 500}
+      }
+    }
+  }
+]
